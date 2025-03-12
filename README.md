@@ -1,10 +1,9 @@
-# GraphTraversal
-# Graph Crawler BFS
+# GraphTraversal - Graph Crawler BFS
 
 ## Description
 This program performs a breadth-first search (BFS) on a graph of actors and movies using a web-based API.
 
-## Installation
+## Installation:
 ### Dependencies
 - C++ Compiler (g++)
 - libcurl
