@@ -82,7 +82,12 @@ void bfs(const string& start_node, int max_depth) {
         }
     }
 }
-
+string format_node_name(string node) {
+    for (char &c : node) {
+        if (c == ' ') c = '_';
+    }
+    return node;
+}
 // main 
 int main(int argc, char* argv[]) {
     if (argc != 3) {
