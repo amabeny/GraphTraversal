@@ -36,7 +36,7 @@ set<string> get_neighbors(const string& node) {
     }
 
 // only for debugging
-cout << "Raw API Response for " << formatted_node << ": " << response << endl;
+cout << "Raw API Response for " << format_node_name << ": " << response << endl;
     
 // JSON 
     set<string> neighbors;
