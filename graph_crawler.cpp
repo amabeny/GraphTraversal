@@ -66,10 +66,17 @@ void bfs(const string& start_node, int max_depth) {
 
         if (depth < max_depth) {
             set<string> neighbors = get_neighbors(node);
+            
+            // added to help debug
+            cout << "Neighbors of " << node << ": ";
+            for (const auto& n : neighbors) cout << n << " ";
+            cout << endl;
+            
             for (const string& neighbor : neighbors) {
                 if (visited.find(neighbor) == visited.end()) {
                     visited.insert(neighbor);
                     q.push({neighbor, depth + 1});
+                    cout << "Adding " << neighbor << " to queue at depth " << (depth + 1) << endl;
                 }
             }
         }
