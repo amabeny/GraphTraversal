@@ -31,6 +31,9 @@ set<string> get_neighbors(const string& node) {
         curl_easy_cleanup(curl);
     }
 
+// only for debugging
+cout << "API Response for " << node << ": " << response << endl;
+    
 // JSON 
     set<string> neighbors;
     Document doc;
