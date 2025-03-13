@@ -24,6 +24,9 @@ set<string> get_neighbors(const string& node) {
     string url = BASE_URL + format_node_name(node);
     string response;
 
+    // debug line
+    cout << "Fetching URL: " << url << endl;
+
     if (curl) {
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
@@ -33,13 +36,14 @@ set<string> get_neighbors(const string& node) {
     }
 
 // only for debugging
-cout << "API Response for " << node << ": " << response << endl;
+cout << "Raw API Response for " << formatted_node << ": " << response << endl;
     
 // JSON 
     set<string> neighbors;
     Document doc;
     if (doc.Parse(response.c_str()).HasParseError()) {
         cerr << "Error parsing JSON response" << endl;
+        cerr << "Raw response: " << response << endl; // debug line
         return neighbors;
     }
 
@@ -98,6 +102,9 @@ int main(int argc, char* argv[]) {
 
     string start_node = argv[1];
     int depth = stoi(argv[2]);
+
+     // debug line
+    cout << "Formatted node name: " << format_node_name(start_node) << endl;
 
     bfs(start_node, depth);
     return 0;
