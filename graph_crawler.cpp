@@ -16,6 +16,7 @@ size_t WriteCallback(void* contents, size_t size, size_t nmemb, string* output) 
     output->append((char*)contents, total_size);
     return total_size;
 }
+string format_node_name(string node);
 
 // to fetch neighbors 
 set<string> get_neighbors(const string& node) {
