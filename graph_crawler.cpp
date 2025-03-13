@@ -36,14 +36,13 @@ set<string> get_neighbors(const string& node) {
     }
 
 // only for debugging
-cout << "Raw API Response for " << format_node_name << ": " << response << endl;
+// cout << "Raw API Response for " << format_node_name << ": " << response << endl;
     
 // JSON 
     set<string> neighbors;
     Document doc;
     if (doc.Parse(response.c_str()).HasParseError()) {
         cerr << "Error parsing JSON response" << endl;
-        cerr << "Raw response: " << response << endl; // debug line
         return neighbors;
     }
 
@@ -73,7 +72,7 @@ void bfs(const string& start_node, int max_depth) {
             set<string> neighbors = get_neighbors(node);
             
             // added to help debug
-            cout << "Neighbors of " << node << ": ";
+            // cout << "Neighbors of " << node << ": ";
             for (const auto& n : neighbors) cout << n << " ";
             cout << endl;
             
@@ -102,9 +101,6 @@ int main(int argc, char* argv[]) {
 
     string start_node = argv[1];
     int depth = stoi(argv[2]);
-
-     // debug line
-    cout << "Formatted node name: " << format_node_name(start_node) << endl;
 
     bfs(start_node, depth);
     return 0;
