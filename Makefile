@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++11 -I ~/rapidjson/include -lcurl
+CXXFLAGS = -std=c++17 -I ~/rapidjson/include -lcurl
 
 all: graph_crawler
 
