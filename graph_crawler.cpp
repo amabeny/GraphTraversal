@@ -20,7 +20,7 @@ size_t WriteCallback(void* contents, size_t size, size_t nmemb, string* output) 
 // to fetch neighbors 
 set<string> get_neighbors(const string& node) {
     CURL* curl = curl_easy_init();
-    string url = BASE_URL + node;
+    string url = BASE_URL + format_node_name(node);
     string response;
 
     if (curl) {
